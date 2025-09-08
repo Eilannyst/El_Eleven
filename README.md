@@ -1,4 +1,4 @@
-Tautan menuju aplikasi PWS yang sudah di-deploy : https://elizabeth-meilanny-eleleven.pbp.cs.ui.ac.id/
+Tautan menuju aplikasi PWS yang sudah di-deploy : https://elizabeth-meilanny-eleleven.pbp.cs.ui.ac.id
 
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
     1. Pertama, saya membuat folder baru dengan nama ide aplikasi yang saya buat, yaitu EL_Eleven
