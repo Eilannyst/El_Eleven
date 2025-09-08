@@ -12,6 +12,8 @@ Tautan menuju aplikasi PWS yang sudah di-deploy : https://elizabeth-meilanny-ele
 
 
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
+<img width="1050" height="571" alt="image" src="https://github.com/user-attachments/assets/8507194b-6b70-4a42-8fa8-654246419f79" />
+Django menerima URL dari browser yang kemudian mengirimkan HTTP request ke server. Untuk mencocokan pola URL tersebut dengan fungsi view yang telah didefinisikan sebelumnya, Django menggunakan file urls.py. Setelah routing request ke fungsi view yang sesuai berhasil, maka fungsi tersebut akan memproses request dengan mengakses database dan operasi lainnya. Setelah proses tersebut selesai, Django akan mengembalikan response kepada browser yang bisa berupa HTML response atau lainnya agar client dapat mengetahui update dan komunikasi antaraclient terstruktur dan efisien.
 
 
 3. Jelaskan peran settings.py dalam proyek Django!
