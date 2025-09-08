@@ -1,14 +1,14 @@
 Tautan menuju aplikasi PWS yang sudah di-deploy : https://elizabeth-meilanny-eleleven.pbp.cs.ui.ac.id/
 
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
-    > Pertama, saya membuat folder baru dengan nama ide aplikasi yang saya buat, yaitu EL_Eleven
-    > Lalu, saya mengaktifkan virtual environtment, menyiapkan dependencies dan membuat proyek Django, konfigurasi environment variables dan proyek, migrasi, dan run server. Lalu, aplikasi Django sudah jadi.
-    > Setelah itu, saya membuat aplikasi dengan nama main pada proyek tersebut dengan menjalankan perintah python manage.py startapp main dan mendaftarkan aplikasi main ke dalam proyek.
-    > Lalu, saya buat direktori baru bernama templates di dalam direktori aplikasi main dan buat berkas baru main.html di dalam direktori templates. Isi berkas main.html dengan ketentuan di soal, yaitu nama dan kelas dengan memerhatikan heading karena setiap heading ukurannya beda.
-    > Selanjutnya, saya mengubah berkas models.py dalam aplikasi main sesuai ketentuan soal dengan tipe data masing - masing atribut.
-    > Setelah itu, migrasi dan Menghubungkan View dengan Template. Pada berkas views.py, fungsinya saya isi dengan nama dan kelas sesuai dengan main.html.
-    > Setelah membuat template dan mengonfigurasikannya pada view, lanjut mengonfigurasi Routing URL Aplikasi main dan proyek dengan membuat berkas urls.py dan mengisinya dengan kode - kode yang sesuai.
-    > Setelah selesai melakukan step by step berdasarkan tutorial 1 dan tutorial 0, lakukan deployment ke PWS terhadap aplikasi yang sudah dibuat dengan membuat proyek baru terlebih dahulu di homepage PWS, simpan credentials yang diperoleh. Pergi ke vs code dan copy .env.prod, lalu paste ke dalam environs proyek PWS. Pada settings.py di proyek Django yang sudah dibuat tadi, tambahkan URL deployment PWS pada ALLOWED_HOSTS. Jalankan perintah yang terdapat pada informasi project command pada halaman PWS dan isi username dan password dengan menggunakan credentials yang telah disimpan sebelumnya. Lalu, kembali ke PWS dan lihat status deployment apakah building, running, successful. Tekan view project untuk memastikan. 
+    1. Pertama, saya membuat folder baru dengan nama ide aplikasi yang saya buat, yaitu EL_Eleven
+    2. Lalu, saya mengaktifkan virtual environtment, menyiapkan dependencies dan membuat proyek Django, konfigurasi environment variables dan proyek, migrasi, dan run server. Lalu, aplikasi Django sudah jadi.
+    3. Setelah itu, saya membuat aplikasi dengan nama main pada proyek tersebut dengan menjalankan perintah python manage.py startapp main dan mendaftarkan aplikasi main ke dalam proyek.
+    4. Lalu, saya buat direktori baru bernama templates di dalam direktori aplikasi main dan buat berkas baru main.html di dalam direktori templates. Isi berkas main.html dengan ketentuan di soal, yaitu nama dan kelas dengan memerhatikan heading karena setiap heading ukurannya beda.
+    5. Selanjutnya, saya mengubah berkas models.py dalam aplikasi main sesuai ketentuan soal dengan tipe data masing - masing atribut.
+    6. Setelah itu, migrasi dan Menghubungkan View dengan Template. Pada berkas views.py, fungsinya saya isi dengan nama dan kelas sesuai dengan main.html.
+    7. Setelah membuat template dan mengonfigurasikannya pada view, lanjut mengonfigurasi Routing URL Aplikasi main dan proyek dengan membuat berkas urls.py dan mengisinya dengan kode - kode yang sesuai.
+    8. Setelah selesai melakukan step by step berdasarkan tutorial 1 dan tutorial 0, lakukan deployment ke PWS terhadap aplikasi yang sudah dibuat dengan membuat proyek baru terlebih dahulu di homepage PWS, simpan credentials yang diperoleh. Pergi ke vs code dan copy .env.prod, lalu paste ke dalam environs proyek PWS. Pada settings.py di proyek Django yang sudah dibuat tadi, tambahkan URL deployment PWS pada ALLOWED_HOSTS. Jalankan perintah yang terdapat pada informasi project command pada halaman PWS dan isi username dan password dengan menggunakan credentials yang telah disimpan sebelumnya. Lalu, kembali ke PWS dan lihat status deployment apakah building, running, successful. Tekan view project untuk memastikan. 
 
 
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
