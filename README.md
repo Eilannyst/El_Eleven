@@ -1,4 +1,4 @@
-Tautan menuju aplikasi PWS yang sudah di-deploy : https://elizabeth-meilanny-eleleven.pbp.cs.ui.ac.id/
+Tautan menuju aplikasi PWS yang sudah di-deploy : https://elizabeth-meilanny-eleleven.pbp.cs.ui.ac.id
 
 1.Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
 Data delivery sangat diperlukan dalam mengimplementasikan sebuah platform karena dapat memastikan ketepatan dan keakuratan waktu dikirimnya data user. Artinya, data delivery memiliki tujuan, yaitu untuk meningkatkan efisiensi dan kepuasan user dalam proses pengiriman.
