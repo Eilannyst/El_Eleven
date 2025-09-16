@@ -1,16 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Football Shop</title>
-    
-</head>
-<body> 
-    <h1>
-        El_Eleven
-    </h1>
-    <h5>{{ nama }}</h5>
-    <h5>{{ kelas }}</h5>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %} 
+{% block page_title %}El Eleven{% endblock page_title %}
+
+{% block content %}
+<h1>El Eleven</h1> 
+
+<h5>Name:</h5>
+<p>{{ nama }}</p> 
+
+<h5>Class:</h5>
+<p>{{ kelas }}</p> 
+<a href="{% url 'main:create_product' %}" class="btn">+ Add Product</a> {# Tombol Add Product #}
+
+<hr>
+
+{% if not products %} {# Cek apakah ada produk #}
+<p>No products available in the shop.</p>
+{% else %}
+    {% for product in products %} 
+    <div class="product-card">
+        {% if product.thumbnail %}
+        <img src="{{ product.thumbnail }}" alt="{{ product.name }} thumbnail">
+        {% else %}
+        <img src="{% static 'default_product.png' %}" alt="No image available">
+        {% endif %}
+        <div class="product-info">
+            <h2><a href="{% url 'main:show_product' product.id %}">{{ product.name }}</a></h2>
+            <p><b>Category:</b> {{ product.category }}</p>
+            <p><b>Price:</b> Rp {{ product.price|floatformat:0 }}</p>
+            {% if product.is_featured %}
+            <p><b>Featured Product!</b></p>
+            {% endif %}
+            <p>Created At: <i>{{ product.created_at|date:"d M Y H:i" }}</i></p>
+            <p>{{ product.description|truncatewords:25 }}...</p> {# Deskripsi singkat #}
+
+            <p><a href="{% url 'main:show_product' product.id %}" class="btn">Detail</a></p> {# Tombol Detail #}
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+{% endif %}
+{% endblock content %}
