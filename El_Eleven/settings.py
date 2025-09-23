@@ -30,10 +30,10 @@ SECRET_KEY = 'django-insecure-2^33a3%cdl-^$q4(kk^-^gm7lb3eyrr56(s@*tjro#rh!8z#py
 PRODUCTION = os.getenv('PRODUCTION', 'False').lower() == 'true'
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "elizabeth-meilanny-ElEleven.pbp.cs.ui.ac.id"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "elizabeth-meilanny-eleleven.pbp.cs.ui.ac.id"]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://pbp.cs.ui.ac.id/elizabeth.meilanny/eleleven"
+    "https://elizabeth-meilanny-eleleven.pbp.cs.ui.ac.id"
 ]
 
 
