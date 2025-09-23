@@ -1,46 +1,30 @@
-Tautan menuju aplikasi PWS yang sudah di-deploy : https://elizabeth-meilanny-eleleven.pbp.cs.ui.ac.id
-
-1.Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
-Data delivery sangat diperlukan dalam mengimplementasikan sebuah platform karena dapat memastikan ketepatan dan keakuratan waktu dikirimnya data user. Artinya, data delivery memiliki tujuan, yaitu untuk meningkatkan efisiensi dan kepuasan user dalam proses pengiriman.
-
-2.Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
-JSON lebih populer dibandingkan XML karena JSON dinilai lebih baik untuk banyak aplikasi saat ini. Keunggulannya karena sintaksnya lebih ringkas, lebih sederhana, mudah dibaca manusia, dan JSON mendukung struktur data Javascript dan python yang sangat cocok untuk aplikasi web terkini dan pengembangan API. Selain itu, dengan lancarnya integrasi dengan Javascript, proses pertukaran data pun dapat lebih efisien
-
-3.Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
-Method is_valid() di Django berfungsi untuk memvalidasi data-data yang user masukan ke dalam formulir. Karena method ini berfungsi untuk memvalidasi data, maka method tersebut dibutuhkan untuk memastikan data yang diterima sudah sesuai atau belum. Jika tidak ada method is_valid, maka bisa saja format yang ada pada data dinilai salah atau tidak sesuai.
-
-4.Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
-Saat membuat form di Django, csrf_token dibutuhkan untuk mencegah CSRF terjadi. Hal ini dicegah karena jika terjadi, maka penyerang dapat melakukan permintaan yang tidak sesuai dengan mengatasnamakan user yang sudah login sehingga memungkinkan ancaman terhadap keamanan data terjadi.
-
-5.Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-- Pertama, saya membuka folder footballshop saya, yaitu El Eleven untuk memastikan kesesuaiannya. Lalu saya memBuat direktori templates pada direktori utama (root folder) dan menambahkan berkas base.html di dalamnya sebagai template dasar. 
-- Lalu, saya menambahkan konten pada settings.py dan mengubah berkas main.html agar sesuai dg ketentuan soal.
-Setelah itu, saya membuat berkas baru forms.py pd direktori main dan menambahkan fields yang akan digunakan untuk form dan mengubah berkas forms.py & urls.py utk menambahkan beberapa import
-- Setelah itu,, saya menambahkan html berkas baru pada folder templates dalam main untuk add product dan product detail dan menambahkan entri url proyek pws pada CSRF_TRUSTED_ORIGINS di dalam settings.py
-- Lalu jalankan perintah python manage.py runserver dan cek http://localhost:8000/ di browser 
-- Jika sudah sesuai, maka lakukan pengembalian data dalam bentuk XML dan JSON. Lakukan juga untuk pengembalian data berdasarkan ID dalam bentuk XML dan JSON
-- Lalu jalankan proyek Django dengan perintah python manage.py runserver dan cek http://localhost:8000/xml/[news_id]/ atau http://localhost:8000/json/[news_id]/ 
-- Setelah itu, pastikan pengiriman data sesuai atau tidak dengan membuka postman dan membuat sebuah request baru dengan method GET dan url http://localhost:8000/xml/ atau http://localhost:8000/json/ 
-
-6.Apakah ada feedback untuk asdos di tutorial 2 yang sudah kalian kerjakan?
-Menurut saya, tutorial 2 sudah cukup membantu dan memberikan penjelasan terkait materi secara informatif dan deskriptif, seperti tutorial sebelumnya. Feedback dari saya, semoga keinformatifan yang ada di tutorial 2 dapat selalu dipertahankan agar mahasiswa/i dapat mengerti secara teori dan praktik, seperti halnya yang terdapat pada tutorial 2.
-
-Screenshot dari hasil akses URL pada Postman :
-XML :
-![alt text](<xml postman 1.png>)
-![alt text](<xml postman 2.png>)
-
-XML ID :
-![alt text](xml-id.png)
-
-JSON :
-![alt text](<json postman 1.png>) 
-![alt text](<json postman 2.png>)
-
-JSON ID :
-![alt text](JSON-id.png)
+![alt text](Cookies_ElizabethMeilanny_2406433522.png)
 
 
+1. Apa itu Django AuthenticationForm? Jelaskan juga kelebihan dan kekurangannya.
+> Django AuthenticationForm adalah form bawaan yang digunakan untuk verifikasi siapa diri kita atau login dengan username dan password
+
+> Kelebihan Django AuthenticationForm adalah mudah diimplementasikan karena user hanya perlu mengimport dan menggunakannya di view. Selain itu, Django AuthenticationForm menyediakan validasi data secara otomatis untuk kesesuaian username dan password user dan menyediakan dukungan built-in error message ketika terdapat kesalahan atau error.
+
+> Kekurangan Django AuthenticationForm adalah tidak adanya fitur registrasi untuk pengguna baru yang belum memiliki akun dan tidak adanya fitur forgot password untuk user yang ingin mereset passwordnya sehingga Django AuthenticationForm juga kurang fleksibel untuk user yang ingin login secara khusus by email atau lainnya.
+
+2. Apa perbedaan antara autentikasi dan otorisasi? Bagaiamana Django mengimplementasikan kedua konsep tersebut?
+> Autentikasi => Verifikasi identitas user (login username dan password)
+> Otorisasii => Penentuan hak akses user (akses user atau akses admin)
+Django mengimplementasikan autentikasi dengan menggunakan sistem autentikasi bawaan, seperti model user, fungsi autentikasi, login dan logout, dan AuthenticationForm. Lalu django mengimplementasikan otorisasi dengan menggunakan permission, decorator, dan groups yang lebih fleksibel.
 
 
+3. Apa saja kelebihan dan kekurangan session dan cookies dalam konteks menyimpan state di aplikasi web?
+> Session : Memiliki kelebihan di bidang security atau keamanan karena data disimpan di dalam server. Akan tetapi, memiliki kekurangan terkait kebutuhan penyimpanan server (memori, disk, dan database) untuk menyimpan aktivitas user.
+> Cookies : Memiliki kelebihan akses data yang lebih efisien untuk client dan server. Akan tetapi, memiliki kekurangan, yaitu rentan terhadap data sensitive karena display by url.
 
+
+4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai? Bagaimana Django menangani hal tersebut?
+By default, penggunaan cookies tidak aman karena rentan terhadap attacks. Risiko potensial yang harus diwaspadai, seperti Cross-Site Request Forgery (CSRF) dan Cross-Site Scripting(XSS). Akan tetapi, django dapat menangani hal tersebut dengan CSRF Protection yang kuat by default dengan cara mengirimkan csrf token di cookie. Ketika permintaan POST diterima user, maka Django akan mengcompare kedua token tersebut apakah sama atau tidak. Jika sama, maka verifikasi berhasil dan akun user menjadi aman terhadap serangan dari luar user.
+
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+> Pertama, saya membuat fungsi dan form registrasi, seperti yang ada di tutorial 3 lalu merestriksi akses halaman main dan product detail
+> Lalu, saya melogout aplikasi django dan menambahkan import HttpResponseRedirect, reverse, dan datetime, pada bagian paling atas, mengubah kode, logout, dan kode lainnya untuk menggunakan data dari cookies
+> Selanjutnya, saya menghubungkan model product dengan user dengan menabahkan model product tersebut pada models.py dan mengubah kode fungsi create product, dan lain- lain
+> Terkait Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat sebelumnya, saya lakukan di lokal

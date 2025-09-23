@@ -1,41 +1,54 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block meta %}El_Eleven{% endblock meta %}</title>
+    {% block meta %}{% endblock meta %}
+
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
-        h1, h2 { color: #0056b3; }
-        .container { max-width: 960px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .header { text-align: center; padding-bottom: 20px; border-bottom: 1px solid #eee; margin-bottom: 20px; }
-        .product-card { border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-bottom: 15px; background-color: #f9f9f9; display: flex; align-items: center; }
-        .product-card img { width: 100px; height: 100px; object-fit: cover; margin-right: 15px; border-radius: 4px; }
-        .product-info { flex-grow: 1; }
-        .product-info h2 { margin-top: 0; margin-bottom: 5px; }
-        .product-info p { margin-bottom: 5px; font-size: 0.9em; }
-        .btn { background-color: #007bff; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 10px; }
-        .btn:hover { background-color: #0056b3; }
-        .form-table td { padding: 5px; }
-        .form-table input[type="text"], .form-table textarea, .form-table input[type="number"], .form-table select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box; 
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            text-decoration: none;
+            background-color: #00b3b0;
+            color: white;
+            border: none;
+            cursor: pointer;
         }
-        .form-table input[type="submit"] { width: auto; }
-        hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
+        .btn:hover {
+            background-color: #00b3b0;
+        }
+        .btn.active {
+            background-color: #00b3b0;
+            border: 1px solid #00b3b0;
+        }
+        .product-card {
+            display: flex;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+        .product-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-info h2 {
+            margin-top: 0;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>{% block page_title %}El_Eleven{% endblock page_title %}</h1>
-        </div>
-        {% block content %}
-        {% endblock content %}
-    </div>
+    {% block content %}{% endblock content %}
 </body>
 </html>

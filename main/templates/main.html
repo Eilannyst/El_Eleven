@@ -1,23 +1,33 @@
 {% extends 'base.html' %}
-{% load static %} 
+{% load static %}
 {% block page_title %}El Eleven{% endblock page_title %}
 
 {% block content %}
-<h1>El Eleven</h1> 
+<h1>El Eleven</h1>
 
-<h5>Name:</h5>
-<p>{{ nama }}</p> 
-
-<h5>Class:</h5>
-<p>{{ kelas }}</p> 
-<a href="{% url 'main:create_product' %}" class="btn">+ Add Product</a> {# Tombol Add Product #}
+{% if request.user.is_authenticated %}
+    <h5>Selamat datang, {{ request.user.username }}!</h5>
+    <p>Kelas: {{ kelas }}</p>
+    <p>Sesi terakhir login: {{ last_login }}</p>
+    <a href="{% url 'main:create_product' %}" class="btn">+ Add Product</a>
+    <a href="{% url 'main:logout' %}" class="btn">Logout</a>
+{% else %}
+    <p>Anda belum login. Silakan <a href="{% url 'main:login' %}">login</a> atau <a href="{% url 'main:register' %}">daftar</a>.</p>
+{% endif %}
 
 <hr>
 
-{% if not products %} {# Cek apakah ada produk #}
-<p>No products available in the shop.</p>
+{% if request.user.is_authenticated %}
+    <div style="margin-bottom: 15px;">
+        <a href="{% url 'main:show_main' %}?filter=all" class="btn {% if current_filter == 'all' %}active{% endif %}">Semua Produk</a>
+    </div>
+{% endif %}
+
+
+{% if not products %}
+<p>Tidak ada produk tersedia di toko.</p>
 {% else %}
-    {% for product in products %} 
+    {% for product in products %}
     <div class="product-card">
         {% if product.thumbnail %}
         <img src="{{ product.thumbnail }}" alt="{{ product.name }} thumbnail">
@@ -26,18 +36,20 @@
         {% endif %}
         <div class="product-info">
             <h2><a href="{% url 'main:show_product' product.id %}">{{ product.name }}</a></h2>
-            <p><b>Category:</b> {{ product.category }}</p>
-            <p><b>Price:</b> Rp {{ product.price|floatformat:0 }}</p>
+            <p><b>Kategori:</b> {{ product.category }}</p>
+            <p><b>Harga:</b> Rp {{ product.price|floatformat:0 }}</p>
             {% if product.is_featured %}
-            <p><b>Featured Product!</b></p>
+            <p><b>Produk Unggulan!</b></p>
             {% endif %}
-            <p>Created At: <i>{{ product.created_at|date:"d M Y H:i" }}</i></p>
-            <p>{{ product.description|truncatewords:25 }}...</p> {# Deskripsi singkat #}
+            <p>Dibuat oleh: {{ product.user.username|default:"Anonymous" }}</p> {# Tampilkan nama pembuat produk #}
+            <p>Dibuat pada: <i>{{ product.created_at|date:"d M Y H:i" }}</i></p>
+            <p>{{ product.description|truncatewords:25 }}...</p>
 
-            <p><a href="{% url 'main:show_product' product.id %}" class="btn">Detail</a></p> {# Tombol Detail #}
+            <p><a href="{% url 'main:show_product' product.id %}" class="btn">Detail</a></p>
         </div>
     </div>
     <hr>
     {% endfor %}
 {% endif %}
+
 {% endblock content %}
