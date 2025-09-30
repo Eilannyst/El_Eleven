@@ -60,6 +60,40 @@ def show_product(request, id):
     }
     return render(request, "product_detail.html", context)
 
+@login_required(login_url='/login/')
+def edit_product(request, id):
+    product = get_object_or_404(Product, pk=id)
+
+    if product.user != request.user:
+        messages.error(request, "Anda tidak memiliki izin untuk mengedit produk ini.")
+        return redirect('main:show_main')
+
+    form = ProductForm(request.POST or None, instance=product)
+
+    if form.is_valid() and request.method == 'POST':
+        form.save()
+        messages.success(request, 'Produk berhasil diperbarui!')
+        return redirect('main:show_main')
+
+    context = {
+        'form': form,
+        'product': product,  
+    }
+    return render(request, "edit_product.html", context)
+
+@login_required(login_url='/login/')
+@csrf_exempt
+def delete_product(request, id):
+    product = get_object_or_404(Product, pk=id)
+    
+    if product.user != request.user:
+        messages.error(request, "Anda tidak memiliki izin untuk menghapus produk ini.")
+        return redirect('main:show_main')
+        
+    product.delete()
+    messages.success(request, 'Produk berhasil dihapus!')
+    return HttpResponseRedirect(reverse('main:show_main'))
+
 def show_xml(request):
     products = Product.objects.all()
     xml_data = serializers.serialize("xml", products)
@@ -96,9 +130,10 @@ def register(request):
     context = {'form': form}
     return render(request, 'register.html', context)
 
+
 def login_user(request):
     if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST) # Perbaiki parameter request
+        form = AuthenticationForm(request, data=request.POST) 
         if form.is_valid():
             user = form.get_user()
             login(request, user)

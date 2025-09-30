@@ -1,54 +1,17 @@
+<!-- templates/base.html -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% block meta %}{% endblock meta %}
-
-    <style>
-        .btn {
-            display: inline-block;
-            padding: 10px 15px;
-            margin: 5px;
-            border-radius: 5px;
-            text-decoration: none;
-            background-color: #00b3b0;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #00b3b0;
-        }
-        .btn.active {
-            background-color: #00b3b0;
-            border: 1px solid #00b3b0;
-        }
-        .product-card {
-            display: flex;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #fff;
-        }
-        .product-card img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        .product-info {
-            padding: 15px;
-        }
-        .product-info h2 {
-            margin-top: 0;
-        }
-    </style>
-</head>
-
-<body>
-    {% block content %}{% endblock content %}
-</body>
+    {% block meta %} 
+    {% endblock meta %}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}"/>
+  </head>
+  <body class="bg-gray-50"> {# Set default background for consistency #}
+    {% block content %} 
+    {% endblock content %}
+  </body>
 </html>
