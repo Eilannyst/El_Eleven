@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Daftar Produk - El Eleven</title>
+{% endblock meta %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="bg-gray-50 min-h-screen pt-20 pb-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header & Actions -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
+      <h1 class="text-2xl font-bold text-gray-900">Daftar Produk</h1>
+
+      <div class="flex flex-wrap gap-3">
+        <!-- Filter -->
+        <div class="inline-flex rounded-md shadow-sm border border-gray-300">
+          <button id="filter-all" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 rounded-l-md">All</button>
+          <button id="filter-my" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 rounded-r-md">My Products</button>
+        </div>
+
+        <!-- Refresh -->
+        <button id="btn-refresh" class="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-md text-sm font-medium transition">
+          Refresh
+        </button>
+
+        <!-- Create Product (Biasa - redirect ke halaman form) -->
+        <a href="{% url 'main:create_product' %}" 
+           class="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md text-sm font-medium transition">
+          Create Product
+        </a>
+
+        <!-- Create Product (AJAX - pakai modal) -->
+        <button id="btn-open-modal" 
+                class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-medium transition">
+          Create Product by AJAX
+        </button>
+      </div>
+    </div>
+
+    <!-- Product List Container -->
+    <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Produk akan dirender lewat JS -->
+    </div>
+
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+  const CURRENT_USERNAME = "{{ user.username|escapejs }}";
+</script>
+<script src="{% static 'js/product.js' %}"></script>
+{% endblock extra_js %}
